@@ -55,8 +55,10 @@ public class Servidor {
         while(true){
             try {
                 if (resultado.next()){
-
-                    System.out.println(resultado.getString(1));
+                	for(int i = 0; i < resultado.getMetaData().getColumnCount(); i++) {
+                		if(i != 4)
+                		System.out.println(resultado.getString(i+1));
+                	}
                 }else{
                     break;
                 }
@@ -75,7 +77,7 @@ public class Servidor {
         createConnection();
 
         //Fazer um select:
-        selectBasico("*","JOGADOR");
+        selectBasico("*","EQUIPE");
 
         //Imprimir resultado:
         ImprimirResultado();
