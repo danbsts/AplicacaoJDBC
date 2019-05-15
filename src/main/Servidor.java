@@ -71,6 +71,7 @@ public class Servidor {
     public static void selectBasico(String consulta){
         try {
             resultado = stmt.executeQuery(consulta);
+            ImprimirResultado();
         } catch (SQLException e) {
             e.printStackTrace();
         }
