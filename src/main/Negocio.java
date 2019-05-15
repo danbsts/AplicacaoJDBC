@@ -1,12 +1,12 @@
 package main;
 
 public class Negocio implements InterfaceNegocio{
-
-	public static void main(String[] args) {
-		// Negocio
-
+	private Servidor jdbc;
+	
+	public Negocio() {
+		jdbc = new Servidor();
 	}
-
+	
 	@Override
 	public void criarConexao() {
 		// TODO Auto-generated method stub
