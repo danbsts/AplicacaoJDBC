@@ -1,1 +1,8 @@
 bin/
+*.jpg
+*.png
+*.ppm
+*.jpeg
+*.tiff
+*.gif
+*.pmp

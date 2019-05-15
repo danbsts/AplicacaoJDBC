@@ -18,7 +18,6 @@ public class Programa {
 			System.out.println("0 - Para fechar o programa");
 			comando = Integer.parseInt(in.nextLine());
 			if (comando == 1) { // inserir pessoa
-				// (CPF_p, Nome, Data_de_nascimento, Sexo)
 				String cpf, nome, dataNasc, genero;
 				System.out.println("Por favor digite os dados da pessoa a ser cadastrada.");
 				System.out.print("Por favor digite o CPF: ");
