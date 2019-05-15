@@ -34,14 +34,14 @@ public class Programa {
 				int escolhido = -1;
 				while(escolhido < 0 || escolhido > 2) {
 					System.out.println("Digite a opção de sua escolha:");
-					System.out.println("1 - Para selecionar todos da tabela.");
+					System.out.println("1 - Para selecionar atributos sem condição.");
 					System.out.println("2 - Para selecionar atributos que satisfazem uma condicao especifica (WHERE).");
 					System.out.println("0 - Para selecionar cancelar.");
 					escolhido = Integer.parseInt(in.nextLine());
 					String colunas;
 					if(escolhido == 1 || escolhido == 2) {
 						System.out.println("Digite as colunas, na mesma linha, que você deseja selecionar:");
-						System.out.println("Para todas as colunas, digite \\*.");
+						System.out.println("Para todas as colunas, digite *.");
 						colunas = in.nextLine();
 						if(escolhido == 1) {
 							jdbc.selecionarInstrucao(colunas);
