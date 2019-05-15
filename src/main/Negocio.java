@@ -1,7 +1,13 @@
 package main;
 
 public class Negocio implements InterfaceNegocio{
-	Servidor servidor = new Servidor();
+	private Servidor servidor;
+	
+	public Negocio() {
+		this.servidor = new Servidor();
+	}
+	
+
 	@Override
 	public void criarConexao() {
 		// TODO Auto-generated method stub
