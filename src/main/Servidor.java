@@ -14,20 +14,20 @@ import java.sql.Statement;
 
 public class Servidor {
 
-    public static String url = "jdbc:oracle:thin:@oracle12c.cin.ufpe.br:1521:instance01";
-    public static String user = "g191if685cc_eq05";
-    public static String senha = "myjxmwoh";
+    public String url = "jdbc:oracle:thin:@oracle12c.cin.ufpe.br:1521:instance01";
+    public String user = "g191if685cc_eq05";
+    public String senha = "myjxmwoh";
 
-    public static Connection conexao;
-    public static Statement stmt;
+    public Connection conexao;
+    public Statement stmt;
 
-    public static ResultSet resultado;
+    public ResultSet resultado;
     
     public Servidor() {
     	createConnection();
     }
 
-    public static void createConnection(){
+    public void createConnection(){
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -41,7 +41,7 @@ public class Servidor {
 
     }
 
-    public static void addMidia(String str_path) throws SQLException, IOException {
+    public void addMidia(String str_path) throws SQLException, IOException {
     	String INSERIR = "update pessoa set Foto=? where Nome='Silvio Santos'";
     	if(str_path != null) {
     		File file = new File(str_path);
@@ -60,7 +60,17 @@ public class Servidor {
     	
     }
     
-    public static void closeConnection(){
+    public void adicionarPessoa(String cpf, String nome, String data, String sexo) {
+    	String consulta = "INSERT INTO pessoa(CPF_p, Nome, Data_de_nascimento, Sexo, Foto) VALUES (" + cpf + ",'" + nome + "'," + "TO_DATE('" + data +"', 'dd/MM/yyyy'), " + sexo + ", null";
+    	System.out.println(consulta);
+    	try {
+    		stmt.executeQuery(consulta);
+    	}catch(SQLException e) {
+    		
+    	}
+    }
+    
+    public void closeConnection(){
         try {
             conexao.close();
         } catch (SQLException e) {
@@ -68,7 +78,7 @@ public class Servidor {
         }
     }
 
-    public static void selectBasico(String consulta){
+    public void selectBasico(String consulta){
         try {
             resultado = stmt.executeQuery(consulta);
         } catch (SQLException e) {
@@ -76,7 +86,7 @@ public class Servidor {
         }
 
     }
-    public static void pegaBlob() {
+    public void pegaBlob() {
     	String PEGA = "select foto from pessoa where nome ='Silvio Santos'";
     	try {
     		ResultSet rs = stmt.executeQuery(PEGA);
@@ -89,7 +99,7 @@ public class Servidor {
     		e.printStackTrace();
     	}
     }
-    public static void ImprimirResultado(){
+    public void ImprimirResultado(){
         while(true){
             try {
                 if (resultado.next()){
@@ -106,28 +116,6 @@ public class Servidor {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String args[]) throws SQLException, IOException{
-
-        //Fazer um select basico:
-
-        //Abrir a conexão:
-        createConnection();
-
-        //Fazer um select:
-
-        //selectBasico("select * from PESSOA");
-        pegaBlob();
-        
-        //addMidia("C:\\Users\\C. Davi\\Pictures\\download.png");
-
-
-        //Imprimir resultado:
-        //ImprimirResultado();
-
-        //Fechar a conexão;
-        closeConnection();
     }
 
 }

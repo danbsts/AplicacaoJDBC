@@ -7,7 +7,6 @@ public class Negocio implements InterfaceNegocio{
 		this.servidor = new Servidor();
 	}
 	
-
 	@Override
 	public void criarConexao() {
 		// TODO Auto-generated method stub
