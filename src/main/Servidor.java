@@ -44,7 +44,6 @@ public class Servidor {
     }
 
     public static void selectBasico(String consulta){
-
         try {
             resultado = stmt.executeQuery(consulta);
         } catch (SQLException e) {
