@@ -41,8 +41,8 @@ public class Servidor {
 
     }
 
-    public static void addMidia(String str_path) throws SQLException, IOException {
-    	String INSERIR = "update pessoa set Foto=? where Nome='Silvio Santos'";
+    public static void addMidia(String str_path, String Nome) throws SQLException, IOException {
+    	String INSERIR = "update pessoa set Foto=? where Nome='" + Nome + "'";
     	if(str_path != null) {
     		File file = new File(str_path);
     		FileInputStream is = new FileInputStream(file);
@@ -76,8 +76,8 @@ public class Servidor {
         }
 
     }
-    public static void pegaBlob() {
-    	String PEGA = "select foto from pessoa where nome ='Silvio Santos'";
+    public static void pegaBlob(String Nome) {
+    	String PEGA = "select foto from pessoa where nome='" + Nome + "'";
     	try {
     		ResultSet rs = stmt.executeQuery(PEGA);
     		Blob glob = null;
@@ -118,7 +118,7 @@ public class Servidor {
         //Fazer um select:
 
         //selectBasico("select * from PESSOA");
-        pegaBlob();
+        pegaBlob("Silvio Santos");
         
         //addMidia("C:\\Users\\C. Davi\\Pictures\\download.png");
 
