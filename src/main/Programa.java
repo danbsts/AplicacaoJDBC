@@ -31,7 +31,7 @@ public class Programa {
 				genero = in.nextLine();
 				jdbc.adicionarPessoa(cpf, nome, dataNasc, genero);
 			} else if(comando == 2) { // consulta pessoa
-				int escolhido = 1;
+				int escolhido = -1;
 				while(escolhido < 0 || escolhido > 2) {
 					System.out.println("Digite a opção de sua escolha:");
 					System.out.println("1 - Para selecionar todos da tabela.");
