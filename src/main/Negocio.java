@@ -21,13 +21,13 @@ public class Negocio implements InterfaceNegocio{
 	}
 
 	@Override
-	public void selectInstrucao(String consulta) {
-		consulta = "select "+ consulta +"from PESSOA";
+	public void selecionarInstrucao(String consulta) {
+		consulta = "select "+ consulta +" from PESSOA";
 		servidor.selectBasico(consulta);
 		
 	}
-	public void selectInstrucao(String consulta, String complemento) {
-		consulta = "select "+ consulta +"from PESSOA WHERE" + complemento;
+	public void selecionarInstrucao(String consulta, String complemento) {
+		consulta = "select "+ consulta +" from PESSOA WHERE" + complemento;
 		servidor.selectBasico(consulta);
 		
 	}
@@ -43,5 +43,13 @@ public class Negocio implements InterfaceNegocio{
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public void adicionarPessoa(String cpf, String nome, String data, String sexo) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

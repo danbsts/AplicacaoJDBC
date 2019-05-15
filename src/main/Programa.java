@@ -44,13 +44,13 @@ public class Programa {
 						System.out.println("Para todas as colunas, digite \\*.");
 						colunas = in.nextLine();
 						if(escolhido == 1) {
-							jdbc.selectInstrucao(colunas);
+							jdbc.selecionarInstrucao(colunas);
 						} else {
 							System.out.println("Por favor digite as condicoes como em uma consulta SQL");
 							String condicoes = in.nextLine();
-							jdbc.selectInstrucao(colunas, condicoes);
+							jdbc.selecionarInstrucao(colunas, condicoes);
 						}
-						
+						escolhido = 0;
 					}
 				}
 			} else if(comando == 3) { // inserir multimidia

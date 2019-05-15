@@ -79,7 +79,7 @@ public class Servidor {
         createConnection();
 
         //Fazer um select:
-        selectBasico();
+        selectBasico("select * from PESSOA");
 
         //Imprimir resultado:
         ImprimirResultado();
