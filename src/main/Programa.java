@@ -3,7 +3,7 @@ package main;
 public class Programa {
 
 	public static void main(String[] args) {
-		// Interface com o usuario
+		Servidor jdbc = new Servidor();
 
 	}
 

@@ -16,6 +16,10 @@ public class Servidor {
     public static Statement stmt;
 
     public static ResultSet resultado;
+    
+    public Servidor() {
+    	createConnection();
+    }
 
     public static void createConnection(){
 
