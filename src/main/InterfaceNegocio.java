@@ -4,7 +4,8 @@ public interface InterfaceNegocio {
 
 	public void criarConexao();
 	public void fecharConexao();
-	public void selectInstrucao();
 	public void imprimirResultados();
 	public void adicionarMidia();
+	public void selectInstrucao(String consulta);
+	public void selectInstrucao(String consulta, String complemento);
 }
