@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Main {
+public class Servidor {
 
     public static String url = "jdbc:oracle:thin:@oracle12c.cin.ufpe.br:1521:instance01";
     public static String user = "g191if685cc_eq05";
