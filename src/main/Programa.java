@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Programa {
 
 	public static void main(String[] args) {
-		Negocio jdbc = new Negocio();
+		InterfaceNegocio jdbc = new Negocio();
 		Scanner in = new Scanner(System.in);
 		int comando = 1;
 		while(comando != 0) {
