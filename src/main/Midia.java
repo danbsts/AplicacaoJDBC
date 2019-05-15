@@ -12,7 +12,7 @@ public class Midia {
 		this.nome = nome;
 	}
 	public void Create() {
-		File file = new File("/../../"+nome);
+		File file = new File("./"+nome+".jpg");
 		FileOutputStream fo = null;
 		try {
 			fo = new FileOutputStream(file);
@@ -20,7 +20,8 @@ public class Midia {
 				file.createNewFile();
 			}
 			
-			byte[] content = blob.getBytes(1, 0);
+			byte[] content = blob.getBytes(1,(int)blob.length());
+			System.out.println(content);
 			fo.write(content);
 			fo.flush();
 			fo.close();

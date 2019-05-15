@@ -76,7 +76,19 @@ public class Servidor {
         }
 
     }
-
+    public static void pegaBlob() {
+    	String PEGA = "select foto from pessoa where nome ='Silvio Santos'";
+    	try {
+    		ResultSet rs = stmt.executeQuery(PEGA);
+    		Blob glob = null;
+    		rs.next();
+    		glob = rs.getBlob("Foto");
+    		Midia m = new Midia(glob, "fon");
+    		m.Create();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    }
     public static void ImprimirResultado(){
         while(true){
             try {
@@ -105,14 +117,14 @@ public class Servidor {
 
         //Fazer um select:
 
-        selectBasico("select * from PESSOA");
-
+        //selectBasico("select * from PESSOA");
+        pegaBlob();
         
-        addMidia("C:\\Users\\C. Davi\\Pictures\\download.png");
+        //addMidia("C:\\Users\\C. Davi\\Pictures\\download.png");
 
 
         //Imprimir resultado:
-        ImprimirResultado();
+        //ImprimirResultado();
 
         //Fechar a conexão;
         closeConnection();
