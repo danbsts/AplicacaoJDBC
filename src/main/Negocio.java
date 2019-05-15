@@ -7,7 +7,6 @@ public class Negocio implements InterfaceNegocio{
 		this.servidor = new Servidor();
 	}
 	
-
 	@Override
 	public void criarConexao() {
 		// TODO Auto-generated method stub
@@ -48,7 +47,7 @@ public class Negocio implements InterfaceNegocio{
 	@Override
 	public void adicionarPessoa(String cpf, String nome, String data, String sexo) {
 		// TODO Auto-generated method stub
-		
+		servidor.adicionarPessoa(cpf, nome, data, sexo);
 	}
 	
 
