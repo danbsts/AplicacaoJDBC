@@ -47,7 +47,7 @@ public class Negocio implements InterfaceNegocio{
 	@Override
 	public void adicionarPessoa(String cpf, String nome, String data, String sexo) {
 		// TODO Auto-generated method stub
-		
+		servidor.adicionarPessoa(cpf, nome, data, sexo);
 	}
 	
 

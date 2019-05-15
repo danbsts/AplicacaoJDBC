@@ -41,8 +41,8 @@ public class Servidor {
 
     }
 
-    public void addMidia(String str_path) throws SQLException, IOException {
-    	String INSERIR = "update pessoa set Foto=? where Nome='Silvio Santos'";
+    public void addMidia(String str_path, String Nome) throws SQLException, IOException {
+    	String INSERIR = "update pessoa set Foto=? where Nome='" + Nome + "'";
     	if(str_path != null) {
     		File file = new File(str_path);
     		FileInputStream is = new FileInputStream(file);
@@ -61,7 +61,7 @@ public class Servidor {
     }
     
     public void adicionarPessoa(String cpf, String nome, String data, String sexo) {
-    	String consulta = "INSERT INTO pessoa(CPF_p, Nome, Data_de_nascimento, Sexo, Foto) VALUES (" + cpf + ",'" + nome + "'," + "TO_DATE('" + data +"', 'dd/MM/yyyy'), " + sexo + ", null";
+    	String consulta = "INSERT INTO pessoa(CPF_p, Nome, Data_de_nascimento, Sexo, Foto) VALUES (" + cpf + ",'" + nome + "'," + "TO_DATE('" + data +"', 'dd/MM/yyyy'), '" + sexo + "', null)";
     	System.out.println(consulta);
     	try {
     		stmt.executeQuery(consulta);
@@ -81,13 +81,15 @@ public class Servidor {
     public void selectBasico(String consulta){
         try {
             resultado = stmt.executeQuery(consulta);
+            ImprimirResultado();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-    public void pegaBlob() {
-    	String PEGA = "select foto from pessoa where nome ='Silvio Santos'";
+    
+    public void pegaBlob(String Nome) {
+    	String PEGA = "select foto from pessoa where nome='" + Nome + "'";
     	try {
     		ResultSet rs = stmt.executeQuery(PEGA);
     		Blob glob = null;
@@ -117,5 +119,4 @@ public class Servidor {
             }
         }
     }
-
 }
