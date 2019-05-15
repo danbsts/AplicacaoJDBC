@@ -1,22 +1,17 @@
 package main;
 
 public class Negocio implements InterfaceNegocio{
-
-	public static void main(String[] args) {
-		// Negocio
-
-	}
-
+	Servidor servidor = new Servidor();
 	@Override
 	public void criarConexao() {
 		// TODO Auto-generated method stub
-		
+		servidor.createConnection();
 	}
 
 	@Override
 	public void fecharConexao() {
 		// TODO Auto-generated method stub
-		
+		servidor.closeConnection();
 	}
 
 	@Override
@@ -28,7 +23,7 @@ public class Negocio implements InterfaceNegocio{
 	@Override
 	public void imprimirResultados() {
 		// TODO Auto-generated method stub
-		
+		servidor.ImprimirResultado();
 	}
 
 	@Override

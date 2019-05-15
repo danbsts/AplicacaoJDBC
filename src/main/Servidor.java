@@ -43,12 +43,10 @@ public class Servidor {
         }
     }
 
-    public static void selectBasico(String coluna, String tabela){
-
-        String consultaSql = "select " + coluna + " from " + tabela;
+    public static void selectBasico(String consulta){
 
         try {
-            resultado = stmt.executeQuery(consultaSql);
+            resultado = stmt.executeQuery(consulta);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,6 +61,7 @@ public class Servidor {
                 		if(i != 4)
                 		System.out.println(resultado.getString(i+1));
                 	}
+                	System.out.println();
                 }else{
                     break;
                 }
@@ -81,7 +80,7 @@ public class Servidor {
         createConnection();
 
         //Fazer um select:
-        selectBasico("*","EQUIPE");
+        selectBasico();
 
         //Imprimir resultado:
         ImprimirResultado();
