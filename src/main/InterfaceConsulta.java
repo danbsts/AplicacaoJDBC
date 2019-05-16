@@ -84,8 +84,8 @@ public class InterfaceConsulta extends JFrame {
 		btnConsultaComWhere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!textPane.getText().equals("select  from PESSOA")) {
-					if(!textPane_1.getText().equals("select  from PESSOA WHERE")) {
-						String str[][] = jdbc.selecionarInstrucao(textPane.getText());
+					if(!textPane_1.getText().equals("select  from PESSOA where")) {
+						String str[][] = jdbc.selecionarInstrucao(textPane.getText(),textPane_1.getText());
 						if(interRetornoConsulta == null) {
 							interRetornoConsulta = new InterfaceRetornoConsulta(str);
 							interRetornoConsulta.setLocationRelativeTo(null);
