@@ -1,5 +1,8 @@
 package main;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 public class Negocio implements InterfaceNegocio{
 	private Servidor servidor;
 	
@@ -36,11 +39,14 @@ public class Negocio implements InterfaceNegocio{
 		// TODO Auto-generated method stub
 		servidor.ImprimirResultado();
 	}
+	public void vizualizarMidia(String Nome) {
+		servidor.pegaBlob(Nome);
+	}
 
 	@Override
-	public void adicionarMidia() {
+	public void adicionarMidia(String path, String Nome) throws SQLException, IOException {
 		// TODO Auto-generated method stub
-		
+		servidor.addMidia(path, Nome); 
 	}
 
 

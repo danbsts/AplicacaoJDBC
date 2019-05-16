@@ -1,10 +1,12 @@
 package main;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Programa {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException, IOException {
 		InterfaceNegocio jdbc = new Negocio();
 		Scanner in = new Scanner(System.in);
 		int comando = 1;
@@ -53,9 +55,18 @@ public class Programa {
 					}
 				}
 			} else if(comando == 3) { // inserir multimidia
+				System.out.println("Digite onde deve ser inserida essa imagem (Nome da pessoa)");
+				String pessoa = in.nextLine();
+				System.out.println("Digite o caminho para a imagem a ser enviada");
+				String path = in.nextLine();
+				jdbc.adicionarMidia(path, pessoa);
+				System.out.println("Imagem Enviada");
 				
 			} else if(comando == 4) { // visualizar multimidia
-				
+				System.out.println("De qual pessoa você quer ver a imagem?");
+				String pessoa = in.nextLine();
+				jdbc.vizualizarMidia(pessoa);
+				System.out.println("imagem recebida");
 			} else { // fechar
 				comando = 0;
 			}
