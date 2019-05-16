@@ -21,6 +21,7 @@ public class InterfaceGrafica extends JFrame {
 	InterfaceFilha interFilha;
 	InterfaceConsulta interConsulta;
 	InterfaceVisualizacao interVisualizacao;
+	InterfaceInsercao interInsert;
 	/**
 	 * Launch the application.
 	 */
@@ -82,7 +83,11 @@ public class InterfaceGrafica extends JFrame {
 		JButton btnInserirMultimdia = new JButton("Inserir Multim\u00EDdia");
 		btnInserirMultimdia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if(interInsert == null) {
+					interInsert = new InterfaceInsercao();
+					interInsert.setLocationRelativeTo(null);
+				}
+				interInsert.setVisible(true);
 			}
 		});
 		btnInserirMultimdia.setBounds(303, 100, 121, 55);
