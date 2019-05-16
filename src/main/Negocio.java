@@ -29,7 +29,7 @@ public class Negocio implements InterfaceNegocio{
 		
 	}
 	public String[][] selecionarInstrucao(String consulta, String complemento) {
-		consulta = "select "+ consulta +" from PESSOA WHERE" + complemento;
+		consulta = "select "+ consulta +" from PESSOA where " + complemento;
 		return servidor.selectBasico(consulta);
 		
 	}
