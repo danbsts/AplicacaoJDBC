@@ -67,10 +67,9 @@ public class InterfaceConsulta extends JFrame {
 				if(!textPane.getText().equals("select  from PESSOA")) {
 					System.out.println(textPane.getText());
 					String str[][] = jdbc.selecionarInstrucao(textPane.getText());
-					if(interRetornoConsulta == null) {
-						interRetornoConsulta = new InterfaceRetornoConsulta(str, textPane.getText());
+					String atributos = textPane.getText();
+						interRetornoConsulta = new InterfaceRetornoConsulta(str, atributos);
 						interRetornoConsulta.setLocationRelativeTo(null);
-					}
 					interRetornoConsulta.setVisible(true);
 				}else {
 					JOptionPane.showMessageDialog(null, "Consulta não realizada por falta de propriedades do select");
@@ -86,10 +85,9 @@ public class InterfaceConsulta extends JFrame {
 				if(!textPane.getText().equals("select  from PESSOA")) {
 					if(!textPane_1.getText().equals("select  from PESSOA where")) {
 						String str[][] = jdbc.selecionarInstrucao(textPane.getText(),textPane_1.getText());
-						if(interRetornoConsulta == null) {
-							interRetornoConsulta = new InterfaceRetornoConsulta(str, textPane.getText());
+						String atributos = textPane.getText();
+							interRetornoConsulta = new InterfaceRetornoConsulta(str, atributos);
 							interRetornoConsulta.setLocationRelativeTo(null);
-						}
 						interRetornoConsulta.setVisible(true);
 					}else {
 						JOptionPane.showMessageDialog(null, "Consulta não realizada por falta de propriedades do where");

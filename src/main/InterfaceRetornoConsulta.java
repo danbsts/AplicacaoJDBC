@@ -6,10 +6,12 @@ import javax.swing.SwingUtilities;
 public class InterfaceRetornoConsulta extends JFrame
 {
 	private String[][] retorno;
+	private String atributos;
     public InterfaceRetornoConsulta(String[][] retorno, String atributos)
     {
-    	this.retorno = retorno;         
-        JTable table = new JTable(this.retorno, splitAtributos(atributos));
+    	this.retorno = retorno;
+    	this.atributos = atributos;
+        JTable table = new JTable(this.retorno, splitAtributos(this.atributos));
          
         this.add(new JScrollPane(table));
          
@@ -30,4 +32,20 @@ public class InterfaceRetornoConsulta extends JFrame
     		return r;
     	}
     }
+
+	public String[][] getRetorno() {
+		return retorno;
+	}
+
+	public void setRetorno(String[][] retorno) {
+		this.retorno = retorno;
+	}
+
+	public String getAtributos() {
+		return atributos;
+	}
+
+	public void setAtributos(String atributos) {
+		this.atributos = atributos;
+	}
 }
