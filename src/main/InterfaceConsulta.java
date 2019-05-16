@@ -68,7 +68,7 @@ public class InterfaceConsulta extends JFrame {
 					System.out.println(textPane.getText());
 					String str[][] = jdbc.selecionarInstrucao(textPane.getText());
 					if(interRetornoConsulta == null) {
-						interRetornoConsulta = new InterfaceRetornoConsulta(str);
+						interRetornoConsulta = new InterfaceRetornoConsulta(str, textPane.getText());
 						interRetornoConsulta.setLocationRelativeTo(null);
 					}
 					interRetornoConsulta.setVisible(true);
@@ -87,7 +87,7 @@ public class InterfaceConsulta extends JFrame {
 					if(!textPane_1.getText().equals("select  from PESSOA where")) {
 						String str[][] = jdbc.selecionarInstrucao(textPane.getText(),textPane_1.getText());
 						if(interRetornoConsulta == null) {
-							interRetornoConsulta = new InterfaceRetornoConsulta(str);
+							interRetornoConsulta = new InterfaceRetornoConsulta(str, textPane.getText());
 							interRetornoConsulta.setLocationRelativeTo(null);
 						}
 						interRetornoConsulta.setVisible(true);

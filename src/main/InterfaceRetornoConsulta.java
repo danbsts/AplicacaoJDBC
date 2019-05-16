@@ -6,14 +6,10 @@ import javax.swing.SwingUtilities;
 public class InterfaceRetornoConsulta extends JFrame
 {
 	private String[][] retorno;
-    public InterfaceRetornoConsulta(String[][] retorno)
+    public InterfaceRetornoConsulta(String[][] retorno, String atributos)
     {
-    	this.retorno = retorno;
-        String[] columns = new String[] {
-            "CPF_p", "Nome", "Data_de_nascimento", "Sexo", "Foto"
-        };
-         
-        JTable table = new JTable(this.retorno, columns);
+    	this.retorno = retorno;         
+        JTable table = new JTable(this.retorno, splitAtributos(atributos));
          
         this.add(new JScrollPane(table));
          
@@ -23,4 +19,15 @@ public class InterfaceRetornoConsulta extends JFrame
         this.setVisible(true);
     }
     
+    public String[] splitAtributos(String at) {
+    	if (at.equals("*")) {
+    		return new String[] {
+    	            "CPF_p", "Nome", "Data_de_nascimento", "Sexo", "Foto"
+            };
+    	} else {
+    		String[] r = at.split(",");
+    		for(int i = 0; i < r.length; i++) r[i].trim();
+    		return r;
+    	}
+    }
 }
