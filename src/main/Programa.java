@@ -8,6 +8,7 @@ public class Programa {
 
 	public static void main(String[] args) throws SQLException, IOException {
 		InterfaceNegocio jdbc = new Negocio();
+		//oi
 		Scanner in = new Scanner(System.in);
 		int comando = 1;
 		while(comando != 0) {
