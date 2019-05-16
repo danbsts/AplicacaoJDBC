@@ -21,7 +21,7 @@ public class Midia {
 			}
 			
 			byte[] content = blob.getBytes(1,(int)blob.length());
-			System.out.println(content);
+			//System.out.println(content);
 			fo.write(content);
 			fo.flush();
 			fo.close();

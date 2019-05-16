@@ -23,14 +23,14 @@ public class Negocio implements InterfaceNegocio{
 	}
 
 	@Override
-	public void selecionarInstrucao(String consulta) {
+	public String[][] selecionarInstrucao(String consulta) {
 		consulta = "select "+ consulta +" from PESSOA";
-		servidor.selectBasico(consulta);
+		return servidor.selectBasico(consulta);
 		
 	}
-	public void selecionarInstrucao(String consulta, String complemento) {
+	public String[][] selecionarInstrucao(String consulta, String complemento) {
 		consulta = "select "+ consulta +" from PESSOA WHERE" + complemento;
-		servidor.selectBasico(consulta);
+		return servidor.selectBasico(consulta);
 		
 	}
 
