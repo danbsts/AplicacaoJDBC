@@ -78,14 +78,16 @@ public class Servidor {
         }
     }
 
-    public void selectBasico(String consulta){
+    public String[][] selectBasico(String consulta){
+    	String[][] res = new String[100000][4];
         try {
             resultado = stmt.executeQuery(consulta);
-            ImprimirResultado();
+            res = ImprimirResultado();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        return res;
     }
     
     public void pegaBlob(String Nome) {
@@ -101,19 +103,29 @@ public class Servidor {
     		e.printStackTrace();
     	}
     }
-    public void ImprimirResultado(){
+    public String[][] ImprimirResultado(){
+    	String result[][] = new String[100000][5];
+    	int contador = 0;
         while(true){
+        	String resultados[] = new String[5];
             try {
                 if (resultado.next()){
                 	for(int i = 0; i < resultado.getMetaData().getColumnCount(); i++) {
                 		if(i != 4)
-                		System.out.println(resultado.getString(i+1));
+                		resultados[i] = resultado.getString(i+1);
+                		else {
+                			if(resultado.getBlob(5) == null) {
+                				resultados[i] = "Não tem";
+                			}else {
+                				resultados[i] = "Tem";
+                			}
+                		}
                 	}
-                	System.out.println();
-                }else{
-                    break;
+                	result[contador] = resultados;
+                	contador++;
+                }else {
+                	return result;
                 }
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }

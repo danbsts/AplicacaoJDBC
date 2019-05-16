@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public class Programa {
+public class Programa{
+
 
 	public static void main(String[] args) throws SQLException, IOException {
 		InterfaceNegocio jdbc = new Negocio();
 		Scanner in = new Scanner(System.in);
-		JLabel j = new JLabel();
 		int comando = 1;
 		while(comando != 0) {
 			if(comando < 0 || comando > 4) System.out.println("Não consegui compreender, por favor tente novamente.");
@@ -48,7 +49,11 @@ public class Programa {
 						System.out.println("Para todas as colunas, digite *.");
 						colunas = in.nextLine();
 						if(escolhido == 1) {
-							jdbc.selecionarInstrucao(colunas);
+							String str[][] = jdbc.selecionarInstrucao(colunas);
+							System.out.println(str[0][0]);
+							System.out.println(str[0][1]);
+							System.out.println(str[0][2]);
+							System.out.println(str[0][3]);
 						} else {
 							System.out.println("Por favor digite as condicoes como em uma consulta SQL");
 							String condicoes = in.nextLine();

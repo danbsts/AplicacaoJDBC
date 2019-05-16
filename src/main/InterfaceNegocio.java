@@ -11,6 +11,6 @@ public interface InterfaceNegocio {
 	public void vizualizarMidia(String Nome);
 	public void adicionarMidia(String path, String Nome) throws SQLException, IOException;
 	public void adicionarPessoa(String cpf, String nome, String data, String sexo);
-	public void selecionarInstrucao(String consulta);
-	public void selecionarInstrucao(String consulta, String complemento);
+	public String[][] selecionarInstrucao(String consulta);
+	public String[][] selecionarInstrucao(String consulta, String complemento);
 }
